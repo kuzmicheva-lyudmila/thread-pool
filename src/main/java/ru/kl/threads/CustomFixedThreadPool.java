@@ -174,10 +174,6 @@ public class CustomFixedThreadPool {
     }
 
     private Runnable getTask() {
-        if (workQueue.isEmpty()) {
-            return null;
-        }
-
         try {
             return workQueue.poll(THREAD_KEEP_ALIVE_TIME_MS, TimeUnit.MILLISECONDS);
         } catch (InterruptedException retry) {
